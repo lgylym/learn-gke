@@ -14,18 +14,6 @@ variable "gke_num_nodes" {
   description = "number of gke nodes"
 }
 
-resource "google_project_service" "enable-compute-engine" {
-  service = "compute.googleapis.com"
-}
-
-resource "google_project_service" "enable-kubernetes-engine" {
-  service = "container.googleapis.com"
-}
-
-resource "google_project_service" "enable-cloud-resource" {
-  service = "cloudresourcemanager.googleapis.com"
-}
-
 # GKE cluster
 resource "google_container_cluster" "primary" {
   name     = "${var.project_id}-gke"
